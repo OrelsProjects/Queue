@@ -7,4 +7,6 @@ interface QueueWrapper<T> {
     fun isEmpty(): Boolean
     fun isNotEmpty(): Boolean
     fun clear()
+    fun remove(item: T): Boolean
+    fun run()
 }

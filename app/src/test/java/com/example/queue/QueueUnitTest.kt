@@ -36,15 +36,17 @@ class QueueUnitTest {
         ) { false }
     }
 
+    @SuppressWarnings
     private fun onAction(item: QueueItem) = timesAction++
 
     private fun onComplete() = timesComplete++
 
+    @SuppressWarnings
     private fun onError(error: Throwable) = timesError++
 
     @Test
     fun testTrueQueueInvoke() {
-        queueTrue.invoke()
+        queueTrue.run()
         Assert.assertEquals(timesAction, testList.size)
         Assert.assertEquals(timesComplete, 1)
         Assert.assertEquals(timesError, 0)
@@ -52,7 +54,7 @@ class QueueUnitTest {
 
     @Test
     fun testFalseQueueInvoke() {
-        queueFalse.invoke()
+        queueFalse.run()
         Assert.assertEquals(timesAction, 0)
         Assert.assertEquals(timesComplete, 0)
         Assert.assertEquals(timesError, 1)
