@@ -3,8 +3,13 @@ package com.constru.queue.domain.model
 import com.constru.queue.data.model.QueueItem
 import com.constru.queue.data.model.QueuePoolWrapper
 import com.constru.queue.data.model.QueueWrapper
+import com.constru.queue.domain.exceptions.QueuePoolConditionFailedException
+import java.lang.Exception
 
-public class QueuePool<T : QueueWrapper<QueueItem>>(queueList: List<T> = ArrayList()) : QueuePoolWrapper,
+class QueuePool<T : QueueWrapper<QueueItem>>(
+    queueList: List<T> = ArrayList(),
+    private val condition: (() -> Boolean)? = null,
+) : QueuePoolWrapper,
     QueueWrapper<T> {
 
     private val queuesPool: ArrayList<T> = ArrayList(queueList)
@@ -30,10 +35,12 @@ public class QueuePool<T : QueueWrapper<QueueItem>>(queueList: List<T> = ArrayLi
             }
 
     override fun run() {
-        filterEmptyQueues()
-        queuesPool.forEach {
-            it.run()
-        }
+        if (condition == null || condition.invoke()) {
+            filterEmptyQueues()
+            queuesPool.forEach {
+                it.run()
+            }
+        } else throw QueuePoolConditionFailedException(this, Exception("Condition failed"))
     }
 
 }
