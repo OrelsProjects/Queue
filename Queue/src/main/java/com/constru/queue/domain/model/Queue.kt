@@ -1,11 +1,9 @@
-package com.example.queue.domain.model
+package com.constru.queue.domain.model
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import com.example.queue.data.model.QueueWrapper
-import com.example.queue.data.model.QueueItem
-import com.example.queue.domain.exceptions.QueueEmptyException
-import com.example.queue.domain.exceptions.QueuePredicateFailedException
+import com.constru.queue.domain.exceptions.QueueEmptyException
+import com.constru.queue.domain.exceptions.QueuePredicateFailedException
+import com.constru.queue.data.model.QueueItem
+import com.constru.queue.data.model.QueueWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -48,7 +46,6 @@ class Queue<T : QueueItem>(
 
     override fun remove(item: T): Boolean = queueItems.remove(item)
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun run() {
         try {
             networkScope.launch {

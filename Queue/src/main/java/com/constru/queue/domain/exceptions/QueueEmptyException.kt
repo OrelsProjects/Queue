@@ -1,4 +1,4 @@
-package com.example.queue.domain.exceptions
+package com.constru.queue.domain.exceptions
 
 import kotlin.Exception
 

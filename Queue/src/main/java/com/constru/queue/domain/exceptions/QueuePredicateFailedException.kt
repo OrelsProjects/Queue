@@ -1,6 +1,6 @@
-package com.example.queue.domain.exceptions
+package com.constru.queue.domain.exceptions
 
-import com.example.queue.data.model.QueueItem
+import com.constru.queue.data.model.QueueItem
 import kotlin.Exception
 
 class QueuePredicateFailedException(

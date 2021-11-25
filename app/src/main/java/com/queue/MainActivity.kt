@@ -1,4 +1,4 @@
-package com.example.queue
+package com.queue
 
 import androidx.appcompat.app.AppCompatActivity
 

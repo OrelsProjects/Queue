@@ -1,13 +1,12 @@
-package com.example.queue
+package com.queue
 
-import com.example.queue.data.model.QueueItem
-import com.example.queue.domain.exceptions.QueueEmptyException
-import com.example.queue.domain.model.Queue
-import com.example.queue.model.TestItem
+import com.constru.queue.domain.model.Queue
+import com.constru.queue.data.model.QueueItem
+import com.constru.queue.domain.exceptions.QueueEmptyException
+import com.queue.model.TestItem
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import kotlin.math.exp
 
 class QueueUnitTest {
 
@@ -47,7 +46,7 @@ class QueueUnitTest {
     @Test
     fun testTrueQueueInvoke() {
         queueTrue.run()
-        Assert.assertEquals(timesAction, testList.size)
+        Assert.assertEquals(timesAction, 4)
         Assert.assertEquals(timesComplete, 1)
         Assert.assertEquals(timesError, 0)
     }

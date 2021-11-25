@@ -1,10 +1,10 @@
-package com.example.queue.domain.model
+package com.constru.queue.domain.model
 
-import com.example.queue.data.model.QueueItem
-import com.example.queue.data.model.QueuePoolWrapper
-import com.example.queue.data.model.QueueWrapper
+import com.constru.queue.data.model.QueueItem
+import com.constru.queue.data.model.QueuePoolWrapper
+import com.constru.queue.data.model.QueueWrapper
 
-class QueuePool<T : QueueWrapper<QueueItem>>(queueList: List<T> = ArrayList()) : QueuePoolWrapper,
+public class QueuePool<T : QueueWrapper<QueueItem>>(queueList: List<T> = ArrayList()) : QueuePoolWrapper,
     QueueWrapper<T> {
 
     private val queuesPool: ArrayList<T> = ArrayList(queueList)

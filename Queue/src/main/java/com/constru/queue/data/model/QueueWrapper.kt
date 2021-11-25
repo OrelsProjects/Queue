@@ -1,4 +1,4 @@
-package com.example.queue.data.model
+package com.constru.queue.data.model
 
 interface QueueWrapper<T> {
     fun push(item: T): Boolean
